@@ -25,7 +25,7 @@ SECRET_KEY = '2wy0-38^vfjs1^oyg1-7rr!qje)9+gm_eyeo3vhox@pdje9$i9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['radiant-crag-75394.heroku.com']
+ALLOWED_HOSTS = ['radiant-crag-75394.herokuapp.com']
 
 
 # Application definition
