@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>T3 de Joaquin Castillo - SWAPI</title>
+</head>
+<body>
+
+<div class="topnav">
+    <form method="GET" id="searchForm" action= {% url "search_page" %}>
+        <input id="films" type="radio" name="filter" value="films" checked> Peliculas
+        <input id="people" type="radio" name="filter" value="people"> Personajes
+        <input id="starships" type="radio" name="filter" value="starships"> Starships
+        <input id="planets" type="radio" name="filter" value="planets"> Planetas
+        <input id="search" name="search" type="text" placeholder="Search..">
+        <input type="submit" value="Buscar">
+    </form>
+    <br><br>
+</div>
+<br><br>
+
+{% if character %}
+    <h2>Character Info: {{ character.name }}</h2>
+    <table>
+    <tr>
+        <th>Nombre:</th>
+        <td>{{ character.name }}</td>
+    </tr>
+    <tr>
+        <th>Año nacimiento:</th>
+        <td>{{ character.birth_year }}</td>
+    </tr>
+    <tr>
+        <th>Color de ojos:</th>
+        <td>{{ character.eye_color }}</td>
+    </tr>
+    <tr>
+        <th>Genero:</th>
+        <td>{{ character.gender }}</td>
+    </tr>
+    <tr>
+        <th>Color de pelo:</th>
+        <td>{{ character.hair_color }}</td>
+    </tr>
+    <tr>
+        <th>Altura:</th>
+        <td>{{ character.height }}</td>
+    </tr>
+    <tr>
+        <th>Peso:</th>
+        <td>{{ character.mass }}</td>
+    </tr>
+    <tr>
+        <th>Color de piel:</th>
+        <td>{{ character.skin_color }}</td>
+    </tr>
+    </table>
+
+    <h2>Planeta de nacimiento</h2>
+    <ul style="list-style-type:circle;">
+    {% for h in homeworld.items %}
+        <li><a href="/t3/planet/?url_param={{ h.0 }}">{{ h.1 }}</a></li>
+    {% endfor %}
+    </ul>
+
+    <h2>Peliculas</h2>
+    <ul style="list-style-type:circle;">
+    {% for f in films.items %}
+        <li><a href="/t3/film/?url_param={{ f.0 }}">{{ f.1 }}</a></li>
+    {% endfor %}
+    </ul>
+
+    <h2>Starships</h2>
+    <ul style="list-style-type:circle;">
+    {% for s in starships.items %}
+        <li><a href="/t3/starship/?url_param={{ s.0 }}">{{ s.1 }}</a></li>
+    {% endfor %}
+    </ul>
+
+{% endif %}
+
+</body>
+</html>

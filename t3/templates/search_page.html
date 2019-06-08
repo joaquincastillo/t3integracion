@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="topnav">
+    <form method="GET" id="searchForm" action= {% url "search_page" %}>
+        <input id="films" type="radio" name="filter" value="films" checked> Peliculas
+        <input id="people" type="radio" name="filter" value="people"> Personajes
+        <input id="starships" type="radio" name="filter" value="starships"> Starships
+        <input id="planets" type="radio" name="filter" value="planets"> Planetas
+        <input id="search" name="search" type="text" placeholder="Search..">
+        <input type="submit" value="Buscar">
+    </form>
+    <br><br>
+</div>
+<br><br>
+
+{% ifequal filter 'people' %}
+    <h2>Resultados de Personajes para: "{{ search }}"</h2>
+    <h3>Nº de resultados: {{ size }}</h3>
+    <ul style="list-style-type:circle;">
+    {% for s in results.items %}
+        <li><a href="/t3/character/?url_param={{ s.0 }}">{{ s.1 }}</a></li>
+    {% endfor %}
+    </ul>
+{% endifequal %}
+
+{% ifequal filter 'starships' %}
+    <h2>Resultados de Starships para: "{{ search }}"</h2>
+    <h3>Nº de resultados: {{ size }}</h3>
+    <ul style="list-style-type:circle;">
+    {% for s in results.items %}
+        <li><a href="/t3/starship/?url_param={{ s.0 }}">{{ s.1 }}</a></li>
+    {% endfor %}
+    </ul>
+{% endifequal %}
+
+{% ifequal filter 'planets' %}
+    <h2>Resultados de Planets para: "{{ search }}"</h2>
+    <h3>Nº de resultados: {{ size }}</h3>
+    <ul style="list-style-type:circle;">
+    {% for s in results.items %}
+        <li><a href="/t3/planet/?url_param={{ s.0 }}">{{ s.1 }}</a></li>
+    {% endfor %}
+    </ul>
+{% endifequal %}
+
+{% ifequal filter 'films' %}
+    <h2>Resultados de Peliculas para: "{{ search }}"</h2>
+    <h3>Nº de resultados: {{ size }}</h3>
+    <ul style="list-style-type:circle;">
+    {% for s in results.items %}
+        <li><a href="/t3/film/?url_param={{ s.0 }}">{{ s.1 }}</a></li>
+    {% endfor %}
+    </ul>
+
+{% endifequal %}
+
+
+
+</body>
+</html>

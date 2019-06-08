@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>T3 de Joaquin Castillo - SWAPI</title>
+
+</head>
+<body>
+
+<div class="topnav">
+    <form method="GET" id="searchForm" action= {% url "search_page" %}>
+        <input id="films" type="radio" name="filter" value="films" checked> Peliculas
+        <input id="people" type="radio" name="filter" value="people"> Personajes
+        <input id="starships" type="radio" name="filter" value="starships"> Starships
+        <input id="planets" type="radio" name="filter" value="planets"> Planetas
+        <input id="search" name="search" type="text" placeholder="Search..">
+        <input type="submit" value="Buscar">
+    </form>
+    <br><br>
+</div>
+
+<br><br>
+{% if starship %}
+    <h2>Starship Info: {{ starship.name }}</h2>
+    <table>
+    <tr>
+        <th>Nombre:</th>
+        <td>{{ starship.name }}</td>
+    </tr>
+    <tr>
+        <th>Modelo:</th>
+        <td>{{ starship.model }}</td>
+    </tr>
+    <tr>
+        <th>Manufactor:</th>
+        <td>{{ starship.manufacturer }}</td>
+    </tr>
+    <tr>
+        <th>Costo en creditos:</th>
+        <td>{{ starship.cost_in_credits }}</td>
+    </tr>
+    <tr>
+        <th>Largo:</th>
+        <td>{{ starship.length }}</td>
+    </tr>
+    <tr>
+        <th>Max velocidad atm:</th>
+        <td>{{ starship.max_atmosphering_speed }}</td>
+    </tr>
+    <tr>
+        <th>Tripulacion:</th>
+        <td>{{ starship.crew }}</td>
+    </tr>
+    <tr>
+        <th>Pasajeros:</th>
+        <td>{{ starship.passengers }}</td>
+    </tr>
+    <tr>
+        <th>Capacidad de carga:</th>
+        <td>{{ starship.cargo_capacity }}</td>
+    </tr>
+    <tr>
+        <th>Consumibles:</th>
+        <td>{{ starship.consumables }}</td>
+    </tr>
+    <tr>
+        <th>Hyperdrive Rating:</th>
+        <td>{{ starship.hyperdrive_rating }}</td>
+    </tr>
+    <tr>
+        <th>MGLT:</th>
+        <td>{{ starship.MGLT }}</td>
+    </tr>
+    <tr>
+        <th>Clase de nave:</th>
+        <td>{{ starship.starship_class }}</td>
+    </tr>
+    </table>
+
+    <h2>Pilotos</h2>
+    <ul style="list-style-type:circle;">
+    {% for p in pilots.items %}
+        <li><a href="/t3/character/?url_param={{ p.0 }}">{{ p.1 }}</a></li>
+    {% endfor %}
+    </ul>
+
+    <h2>Peliculas</h2>
+    <ul style="list-style-type:circle;">
+    {% for f in films.items %}
+        <li><a href="/t3/film/?url_param={{ f.0 }}">{{ f.1 }}</a></li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>T3 de Joaquin Castillo - SWAPI</title>
+</head>
+<body>
+
+<div class="topnav">
+    <form method="GET" id="searchForm" action= {% url "search_page" %}>
+        <input id="films" type="radio" name="filter" value="films" checked> Peliculas
+        <input id="people" type="radio" name="filter" value="people"> Personajes
+        <input id="starships" type="radio" name="filter" value="starships"> Starships
+        <input id="planets" type="radio" name="filter" value="planets"> Planetas
+        <input id="search" name="search" type="text" placeholder="Search..">
+        <input type="submit" value="Buscar">
+    </form>
+    <br><br>
+</div>
+<br><br>
+
+{% if planet %}
+    <h2>Planet Info: {{ planet.name }}</h2>
+    <table>
+    <tr>
+        <th>Nombre:</th>
+        <td>{{ planet.name }}</td>
+    </tr>
+    <tr>
+        <th>Diametro:</th>
+        <td>{{ planet.diameter }}</td>
+    </tr>
+    <tr>
+        <th>Periodo de rotacion:</th>
+        <td>{{ planet.rotation_period }}</td>
+    </tr>
+    <tr>
+        <th>Vuelta a su estrella:</th>
+        <td>{{ planet.orbital_period }}</td>
+    </tr>
+    <tr>
+        <th>Gravedad:</th>
+        <td>{{ planet.gravity }}</td>
+    </tr>
+    <tr>
+        <th>Poblacion:</th>
+        <td>{{ planet.population }}</td>
+    </tr>
+    <tr>
+        <th>Clima:</th>
+        <td>{{ planet.climate }}</td>
+    </tr>
+    <tr>
+        <th>Geografia:</th>
+        <td>{{ planet.terrain }}</td>
+    </tr>
+    <tr>
+        <th>Superficie de agua :</th>
+        <td>{{ planet.surface_water }}</td>
+    </tr>
+    </table>
+
+    <h2>Peliculas</h2>
+    <ul style="list-style-type:circle;">
+    {% for f in films.items %}
+        <li><a href="/t3/film/?url_param={{ f.0 }}">{{ f.1 }}</a></li>
+    {% endfor %}
+    </ul>
+
+    <h2>Residentes</h2>
+    <ul style="list-style-type:circle;">
+    {% for r in residents.items %}
+        <li><a href="/t3/character/?url_param={{ r.0 }}">{{ r.1 }}</a></li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+</body>
+</html>

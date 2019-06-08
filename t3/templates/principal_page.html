@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> T3 de Joaquin Castillo - SWAPI</title>
+</head>
+
+<body>
+    <div class="topnav">
+        <form method="GET" id="searchForm" action= {% url "search_page" %}>
+            <input id="films" type="radio" name="filter" value="films" checked> Peliculas
+            <input id="people" type="radio" name="filter" value="people"> Personajes
+            <input id="starships" type="radio" name="filter" value="starships"> Starships
+            <input id="planets" type="radio" name="filter" value="planets"> Planetas
+            <input id="search" name="search" type="text" placeholder="Search..">
+            <input type="submit" value="Buscar">
+        </form>
+        <br><br>
+    </div>
+    <br><br>
+    <table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Year</th>
+            <th scope="col">Director</th>
+            <th scope="col">Producers</th>
+            <th scope="col">Episode</th>
+        </tr>
+  </thead>
+  <tbody>
+    {% if films %}
+        {% for id in films.items %}
+            {% for film in id %}
+
+                <tr style="text-align:center">
+                    <th scope="row">{{ film.episode }}</th>
+
+                    <td id={{ film.small_url }}><a href="/t3/film/?url_param={{ film.small_url }}">{{ film.title }}</a></td>
+                    <td>{{ film.year }}</td>
+                    <td>{{ film.director }}</td>
+                    <td>{{ film.producer }}</td>
+                    <td>{{ film.episode }} </td>
+
+                </tr>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+
+  </tbody>
+</table>
+
+
+<script>
+//document.getElementById("searchForm").addEventListener("submit", myFunction);
+
+function  myFunction2(f, p, s, pl, search_item) {
+
+}
+
+function myFunction(f, p, s, pl, search_item) {
+    if (f){
+        a
+        location.replace("https://radiant-crag-75394.herokuapp.com/t3/film/?url_param=12")
+    }
+    else if (p){
+        alert("The form was submitted. Value="+"PEOPLE"+". search= "+search_item);
+
+    }
+    else if (s){
+        alert("The form was submitted. Value="+"STARSHIPS"+". search= "+search_item);
+    }
+    else if (pl){
+        alert("The form was submitted. Value="+"PLANETS"+". search= "+search_item);
+    }
+
+}
+</script>
+
+</body>
+
+</html>

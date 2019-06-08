@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>T3 de Joaquin Castillo - SWAPI ulala</title>
+</head>
+<body>
+
+<div class="topnav">
+    <form method="GET" id="searchForm" action= {% url "search_page" %}>
+        <input id="films" type="radio" name="filter" value="films" checked> Peliculas
+        <input id="people" type="radio" name="filter" value="people"> Personajes
+        <input id="starships" type="radio" name="filter" value="starships"> Starships
+        <input id="planets" type="radio" name="filter" value="planets"> Planetas
+        <input id="search" name="search" type="text" placeholder="Search..">
+        <input type="submit" value="Buscar">
+    </form>
+    <br><br>
+</div>
+
+<br><br>
+{% if film and characters and starships and planets %}
+
+    <h2> Titulo: </h2>{{ film.title }}
+    <h2> Episodio: </h2>{{ film.episode_id }}
+    <h2> Director: </h2>{{ film.director }}
+    <h2> Productor(es): </h2>{{ film.producer }}
+    <h2> Fecha lanzamiento: </h2>{{ film.release_date }}
+
+    <h2>Personajes</h2>
+    <ul style="list-style-type:circle;">
+    {% for c in characters.items %}
+        <li><a href="/t3/character/?url_param={{ c.0 }}">{{ c.1 }}</a></li>
+    {% endfor %}
+    </ul>
+
+    <h2>Starships</h2>
+    <ul style="list-style-type:circle;">
+    {% for s in starships.items %}
+        <li><a href="/t3/starship/?url_param={{ s.0 }}">{{ s.1 }}</a></li>
+    {% endfor %}
+    </ul>
+
+    <h2>Planetas</h2>
+    <ul style="list-style-type:circle;">
+    {% for p in planets.items %}
+        <li><a href="/t3/planet/?url_param={{ p.0 }}">{{ p.1 }}</a></li>
+    {% endfor %}
+    </ul>
+
+{% endif %}
+
+</body>
+</html>
