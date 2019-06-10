@@ -81,7 +81,7 @@ def show_film_page(request):
     film = json.loads(result)
 
     film_data = {'id': film["data"]["film"]["id"],
-                 'title': film["data"]["film"]["id"],
+                 'title': film["data"]["film"]["title"],
                  'opening_crawl': film["data"]["film"]["openingCrawl"],
                  'episode_id': film["data"]["film"]["episodeID"],
                  'director': film["data"]["film"]["director"],
