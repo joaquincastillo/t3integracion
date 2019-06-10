@@ -16,7 +16,6 @@ def index(request):
 
     client = queries.gql_client
     result = queries.get_all_films(client)
-
     films = json.loads(result)
 
     film_dict = {}
@@ -29,11 +28,7 @@ def index(request):
         episode = film["node"]["episodeID"]
         film_dict[episode] = {"title": title, "year": year, "director": director,
                               "producer": producer, "episode": episode,
-                              "film_id": film_id, "url": "", "small_url": ""}
-
-
-
-
+                              "film_id": film_id, "url": "", "small_url": film_id}
 
     ## OLD CODE
 
@@ -76,54 +71,89 @@ def index(request):
 
 def show_film_page(request):
 
+    # NEW CODE #
+
+    client = queries.gql_client
+    result = queries.get_all_films(client)
+    film = json.loads(result)
+
+    film_data = { 'id': film["data"]["film"]["id"],  'title': film["data"]["film"]["id"],
+                  'opening_crawl': film["data"]["film"]["openingCrawl"],
+                  'episode_id': film["data"]["film"]["episodeID"],
+                  'director': film["data"]["film"]["director"],
+                  'producer': film["data"]["film"]["producers"],
+                  'release_date': film["data"]["film"]["release_date"]
+                  }
+
+    characters = {}
+    for character in film["data"]["film"]["characterConnection"]["edges"]:
+        name = character["node"]["name"]
+        characterId = character["node"]["id"]
+
+        characters[characterId] = name
+
+    starships = {}
+    for starship in film["data"]["film"]["starshipConnection"]["edges"]:
+        name = starship["node"]["name"]
+        starshipId = starship["node"]["id"]
+
+        starships[starshipId] = name
+
+    planets = {}
+    for planet in film["data"]["film"]["planetConnection"]["edges"]:
+        name = planet["node"]["name"]
+        planetId = planet["node"]["id"]
+
+        planets[planetId] = name
+
 
     # OLD CODE # 
-    url_param = request.GET.get("url_param")
-    req_url = "https://swapi.co/api/films/{}".format(url_param)
+    # url_param = request.GET.get("url_param")
+    # req_url = "https://swapi.co/api/films/{}".format(url_param)
+    #
+    # # return HttpResponse("Hello, world. You're at the t3 index.")
+    # http = PoolManager(cert_reqs="CERT_REQUIRED", ca_certs=certifi.where())
+    # r = http.request('GET', req_url)
+    # my_json = r.data.decode('utf8')
+    # film = json.loads(my_json)
+    #
+    # # Obteniendo info de los personajes
+    # characters = {}
+    # for character_url in film["characters"]:
+    #     char_req = http.request('GET', character_url)
+    #     char_json = char_req.data.decode('utf8')
+    #     character = json.loads(char_json)
+    #     char_name = character["name"]
+    #     char_url = character["url"]
+    #     pos = char_url.find("people")
+    #     url_id = character["url"][pos+7:len(character["url"])-1]
+    #     characters[url_id] = char_name
+    #
+    # # Obteniendo info de las starships
+    # starships = {}
+    # for ship_url in film["starships"]:
+    #     ship_req = http.request('GET', ship_url)
+    #     ship_json = ship_req.data.decode('utf8')
+    #     ship = json.loads(ship_json)
+    #     ship_name = ship["name"]
+    #     s_url = ship["url"]
+    #     pos = s_url.find("starships")
+    #     url_id = ship["url"][pos + 10:len(ship["url"]) - 1]
+    #     starships[url_id] = ship_name
+    #
+    # # Obteniendo info de los planetas
+    # planets = {}
+    # for planet_url in film["planets"]:
+    #     planet_req = http.request('GET', planet_url)
+    #     planet_json = planet_req.data.decode('utf8')
+    #     planet = json.loads(planet_json)
+    #     planet_name = planet["name"]
+    #     p_url = planet["url"]
+    #     pos = p_url.find("planets")
+    #     url_id = planet["url"][pos + 8:len(planet["url"]) - 1]
+    #     planets[url_id] = planet_name
 
-    # return HttpResponse("Hello, world. You're at the t3 index.")
-    http = PoolManager(cert_reqs="CERT_REQUIRED", ca_certs=certifi.where())
-    r = http.request('GET', req_url)
-    my_json = r.data.decode('utf8')
-    film = json.loads(my_json)
-
-    # Obteniendo info de los personajes
-    characters = {}
-    for character_url in film["characters"]:
-        char_req = http.request('GET', character_url)
-        char_json = char_req.data.decode('utf8')
-        character = json.loads(char_json)
-        char_name = character["name"]
-        char_url = character["url"]
-        pos = char_url.find("people")
-        url_id = character["url"][pos+7:len(character["url"])-1]
-        characters[url_id] = char_name
-
-    # Obteniendo info de las starships
-    starships = {}
-    for ship_url in film["starships"]:
-        ship_req = http.request('GET', ship_url)
-        ship_json = ship_req.data.decode('utf8')
-        ship = json.loads(ship_json)
-        ship_name = ship["name"]
-        s_url = ship["url"]
-        pos = s_url.find("starships")
-        url_id = ship["url"][pos + 10:len(ship["url"]) - 1]
-        starships[url_id] = ship_name
-
-    # Obteniendo info de los planetas
-    planets = {}
-    for planet_url in film["planets"]:
-        planet_req = http.request('GET', planet_url)
-        planet_json = planet_req.data.decode('utf8')
-        planet = json.loads(planet_json)
-        planet_name = planet["name"]
-        p_url = planet["url"]
-        pos = p_url.find("planets")
-        url_id = planet["url"][pos + 8:len(planet["url"]) - 1]
-        planets[url_id] = planet_name
-
-    return render(request, 'film_page.html', {"film": film, "characters": characters,
+    return render(request, 'film_page.html', {"film": film_data, "characters": characters,
                                               "starships": starships, "planets": planets})
 
 def show_character_page(request):
