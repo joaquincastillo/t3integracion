@@ -159,38 +159,75 @@ def show_character_page(request):
 
 
 def show_planet_page(request):
+
+    # NEW CODE
+
     url_param = request.GET.get("url_param")
-    req_url = "https://swapi.co/api/planets/{}".format(url_param)
-    http = PoolManager(cert_reqs="CERT_REQUIRED", ca_certs=certifi.where())
-    r = http.request('GET', req_url)
-    my_json = r.data.decode('utf8')
-    planet = json.loads(my_json)
 
-    # Buscando las peliculas donde apareció
+    client = queries.gql_client
+    result = queries.get_character(url_param, client)
+    planet = json.loads(result)
+
+    data = {'id': planet["data"]["planet"]["id"],
+            'name': planet["data"]["planet"]["name"],
+            'diameter': planet["data"]["planet"]["diameter"],
+            'rotation_period': planet["data"]["planet"]["rotationPeriod"],
+            'orbital_period': planet["data"]["planet"]["orbitalPeriod"],
+            'gravity': planet["data"]["planet"]["gravity"],
+            'population': planet["data"]["planet"]["population"],
+            'climate': planet["data"]["planet"]["climates"],
+            'terrain': planet["data"]["planet"]["terrains"],
+            'surface_water': planet["data"]["planet"]["surfaceWater"]
+            }
+
+
     films = {}
-    for film_url in planet["films"]:
-        film_req = http.request('GET', film_url)
-        film_json = film_req.data.decode('utf8')
-        film = json.loads(film_json)
-        film_name = film["title"]
-        f_url = film["url"]
-        pos = f_url.find("films")
-        url_id = film["url"][pos + 6:len(film["url"]) - 1]
-        films[url_id] = film_name
+    for film in planet["data"]["planet"]["filmConnection"]["edges"]:
+        title = film["node"]["title"]
+        film_id = film["node"]["id"]
+        films[film_id] = title
 
-    # Buscando sus residentes
     residents = {}
-    for people_url in planet["residents"]:
-        people_req = http.request('GET', people_url)
-        people_json = people_req.data.decode('utf8')
-        people = json.loads(people_json)
-        people_name = people["name"]
-        p_url = people["url"]
-        pos = p_url.find("people")
-        url_id = people["url"][pos + 7:len(people["url"]) - 1]
-        residents[url_id] = people_name
+    for resident in planet["data"]["planet"]["residentConnection"]["edges"]:
+        name = resident["node"]["name"]
+        resident_id = resident["node"]["id"]
 
-    return render(request, 'planet_page.html', {"planet": planet,
+        residents[resident_id] = name
+
+
+    # # OLD CODE
+    # url_param = request.GET.get("url_param")
+    # req_url = "https://swapi.co/api/planets/{}".format(url_param)
+    # http = PoolManager(cert_reqs="CERT_REQUIRED", ca_certs=certifi.where())
+    # r = http.request('GET', req_url)
+    # my_json = r.data.decode('utf8')
+    # planet = json.loads(my_json)
+    #
+    # # Buscando las peliculas donde apareció
+    # films = {}
+    # for film_url in planet["films"]:
+    #     film_req = http.request('GET', film_url)
+    #     film_json = film_req.data.decode('utf8')
+    #     film = json.loads(film_json)
+    #     film_name = film["title"]
+    #     f_url = film["url"]
+    #     pos = f_url.find("films")
+    #     url_id = film["url"][pos + 6:len(film["url"]) - 1]
+    #     films[url_id] = film_name
+    #
+    # # Buscando sus residentes
+    # residents = {}
+    # for people_url in planet["residents"]:
+    #     people_req = http.request('GET', people_url)
+    #     people_json = people_req.data.decode('utf8')
+    #     people = json.loads(people_json)
+    #     people_name = people["name"]
+    #     p_url = people["url"]
+    #     pos = p_url.find("people")
+    #     url_id = people["url"][pos + 7:len(people["url"]) - 1]
+    #     residents[url_id] = people_name
+
+    return render(request, 'planet_page.html', {"planet": data,
                                                 "films": films,
                                                 "residents": residents})
 
