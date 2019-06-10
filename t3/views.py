@@ -17,8 +17,13 @@ def index(request):
     client = queries.gql_client
     result = queries.get_all_films(client)
 
+    my_json = result.data.decode('utf8')
+    print(my_json)
+    print('- ' * 20)
+    films = json.loads(my_json)
+
     film_dict = {}
-    for film in result["data"]["allFilms"]["edges"]:
+    for film in films["data"]["allFilms"]["edges"]:
         film_id = film["node"]["id"]
         title = film["node"]["title"]
         year = film["node"]["releaseDate"]

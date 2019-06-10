@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf04a795-ec5a-4a97-95ba-a51c7c2b796c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/t3/graphQL/queries.py" beforeDir="false" afterPath="$PROJECT_DIR$/t3/graphQL/queries.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/t3/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/t3/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +18,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/t3/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="128">
+              <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/t3/templates/principal_page.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -102,6 +109,12 @@
               <item name="t3integracion" type="b2602c69:ProjectViewProjectNode" />
               <item name="t3integracion" type="462c0819:PsiDirectoryNode" />
               <item name="t3" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="t3integracion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="t3integracion" type="462c0819:PsiDirectoryNode" />
+              <item name="t3" type="462c0819:PsiDirectoryNode" />
               <item name="templetags" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -169,18 +182,18 @@
       <option name="presentableId" value="Default" />
       <updated>1560134315188</updated>
       <workItem from="1560134320272" duration="4310000" />
-      <workItem from="1560140318472" duration="577000" />
+      <workItem from="1560140318472" duration="900000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4887000" />
+    <option name="totallyTimeSpent" value="5210000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="43" width="849" height="733" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49921995" visible="true" weight="0.20570013" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49921995" visible="true" weight="0.20570013" />
       <window_info id="Structure" order="1" sideWeight="0.50078005" side_tool="true" weight="0.20570013" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -228,10 +241,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/t3/templates/principal_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/t3/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="128">
+          <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
         </state>
       </provider>
     </entry>
