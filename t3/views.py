@@ -171,11 +171,11 @@ def show_character_page(request):
     character = json.loads(result)
 
     data = {'id': character["data"]["person"]["id"],
-            'name': character["data"]["person"]["title"],
-            'birth_year': character["data"]["person"]["birth_year"],
-            'eye_color': character["data"]["person"]["eye_color"],
+            'name': character["data"]["person"]["name"],
+            'birth_year': character["data"]["person"]["birthYear"],
+            'eye_color': character["data"]["person"]["eyeColor"],
             'gender': character["data"]["person"]["gender"],
-            'hair_color': character["data"]["person"]["hair_color"],
+            'hair_color': character["data"]["person"]["hairColor"],
             'height': character["data"]["person"]["height"],
             'mass': character["data"]["person"]["mass"],
             'skin_color': character["data"]["character"]["skinColor"]
