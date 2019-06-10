@@ -162,7 +162,7 @@ def get_planet(planetId, client):
 
     query = '''
     {
-        planet(id: "xxx") {
+        planet(id: "%s") {
             id
             name
             diameter
