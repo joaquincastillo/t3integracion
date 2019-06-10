@@ -167,7 +167,7 @@ def show_character_page(request):
     url_param = request.GET.get("url_param")
 
     client = queries.gql_client
-    result = queries.get_film(url_param, client)
+    result = queries.get_character(url_param, client)
     character = json.loads(result)
 
     data = {'id': character["data"]["person"]["id"],
@@ -193,7 +193,7 @@ def show_character_page(request):
         films[film_id] = title
 
     starships = {}
-    for starship in film["data"]["person"]["starshipConnection"]["edges"]:
+    for starship in character["data"]["person"]["starshipConnection"]["edges"]:
         name = starship["node"]["name"]
         starship_id = starship["node"]["id"]
 
@@ -244,7 +244,7 @@ def show_character_page(request):
     #     url_id = starship["url"][pos + 10:len(starship["url"]) - 1]
     #     starships[url_id] = starship_name
 
-    return render(request, 'character_page.html', {"character": character,
+    return render(request, 'character_page.html', {"character": data,
                                                    "homeworld": homeworld_d,
                                                    "films": films,
                                                    "starships": starships})
