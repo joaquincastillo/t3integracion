@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf04a795-ec5a-4a97-95ba-a51c7c2b796c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/t3/templates/character_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/t3/templates/character_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/t3/templates/film_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/t3/templates/film_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/t3/templates/planet_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/t3/templates/planet_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/t3/templates/principal_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/t3/templates/principal_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/t3/templates/search_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/t3/templates/search_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/t3/templates/starship_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/t3/templates/starship_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/t3/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/t3/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,13 +15,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/t3/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-721">
-              <caret line="167" column="32" selection-start-line="167" selection-start-column="32" selection-end-line="167" selection-end-column="32" />
+            <state relative-caret-position="45">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
               <folding>
-                <element signature="e#890#901#0" />
+                <element signature="e#0#30#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -47,11 +41,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/t3/templates/character_page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="255">
+              <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -112,6 +106,11 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Pool</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -120,7 +119,6 @@
       <list>
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$APPLICATION_CONFIG_DIR$/idea.properties" />
-        <option value="$PROJECT_DIR$/t3/views.py" />
         <option value="$PROJECT_DIR$/t3/graphQL/queries.py" />
         <option value="$PROJECT_DIR$/t3/templates/character_page.html" />
         <option value="$PROJECT_DIR$/t3/templates/film_page.html" />
@@ -128,6 +126,7 @@
         <option value="$PROJECT_DIR$/t3/templates/principal_page.html" />
         <option value="$PROJECT_DIR$/t3/templates/starship_page.html" />
         <option value="$PROJECT_DIR$/t3/templates/search_page.html" />
+        <option value="$PROJECT_DIR$/t3/views.py" />
       </list>
     </option>
   </component>
@@ -241,12 +240,12 @@
       <option name="presentableId" value="Default" />
       <updated>1560134315188</updated>
       <workItem from="1560134320272" duration="4310000" />
-      <workItem from="1560140318472" duration="7148000" />
+      <workItem from="1560140318472" duration="7531000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11458000" />
+    <option name="totallyTimeSpent" value="11841000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="18" y="47" width="849" height="733" extended-state="0" />
@@ -319,16 +318,6 @@
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/t3/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-721">
-          <caret line="167" column="32" selection-start-line="167" selection-start-column="32" selection-end-line="167" selection-end-column="32" />
-          <folding>
-            <element signature="e#890#901#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/t3/graphQL/queries.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="329">
@@ -373,8 +362,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/t3/templates/character_page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="255">
+          <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/t3/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
