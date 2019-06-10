@@ -80,12 +80,13 @@ def show_film_page(request):
     result = queries.get_film(url_param, client)
     film = json.loads(result)
 
-    film_data = { 'id': film["data"]["film"]["id"],  'title': film["data"]["film"]["id"],
-                  'opening_crawl': film["data"]["film"]["openingCrawl"],
-                  'episode_id': film["data"]["film"]["episodeID"],
-                  'director': film["data"]["film"]["director"],
-                  'producer': film["data"]["film"]["producers"],
-                  'release_date': film["data"]["film"]["release_date"]
+    film_data = {'id': film["data"]["film"]["id"],
+                 'title': film["data"]["film"]["id"],
+                 'opening_crawl': film["data"]["film"]["openingCrawl"],
+                 'episode_id': film["data"]["film"]["episodeID"],
+                 'director': film["data"]["film"]["director"],
+                 'producer': film["data"]["film"]["producers"],
+                 'release_date': film["data"]["film"]["releaseDate"]
                   }
 
     characters = {}
