@@ -204,5 +204,3 @@ def show_starship_page(request):
                                                   "films": films})
 
 
-
-
