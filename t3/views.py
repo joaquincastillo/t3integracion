@@ -178,7 +178,7 @@ def show_character_page(request):
             'hair_color': character["data"]["person"]["hairColor"],
             'height': character["data"]["person"]["height"],
             'mass': character["data"]["person"]["mass"],
-            'skin_color': character["data"]["character"]["skinColor"]
+            'skin_color': character["data"]["person"]["skinColor"]
             }
 
     homeworld_id = character["data"]["person"]["homeworld"]["id"]
