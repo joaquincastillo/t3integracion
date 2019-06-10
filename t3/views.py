@@ -165,7 +165,7 @@ def show_planet_page(request):
     url_param = request.GET.get("url_param")
 
     client = queries.gql_client
-    result = queries.get_character(url_param, client)
+    result = queries.get_planet(url_param, client)
     planet = json.loads(result)
 
     data = {'id': planet["data"]["planet"]["id"],
