@@ -6,18 +6,6 @@
 </head>
 <body>
 
-<div class="topnav">
-    <form method="GET" id="searchForm" action= {% url "search_page" %}>
-        <input id="films" type="radio" name="filter" value="films" checked> Peliculas
-        <input id="people" type="radio" name="filter" value="people"> Personajes
-        <input id="starships" type="radio" name="filter" value="starships"> Starships
-        <input id="planets" type="radio" name="filter" value="planets"> Planetas
-        <input id="search" name="search" type="text" placeholder="Search..">
-        <input type="submit" value="Buscar">
-    </form>
-    <br><br>
-</div>
-<br><br>
 
 {% if character %}
     <h2>Character Info: {{ character.name }}</h2>
