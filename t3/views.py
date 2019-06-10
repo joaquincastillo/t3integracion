@@ -211,7 +211,7 @@ def show_starship_page(request):
             'manufacturer': starship["data"]["starship"]["manufacturers"],
             'cost_in_credits': starship["data"]["starship"]["costInCredits"],
             'length': starship["data"]["starship"]["length"],
-            'max_atmosphering_speed': starship["data"]["starship"]["maxAtmosperingSpeed"],
+            'max_atmosphering_speed': starship["data"]["starship"]["maxAtmospheringSpeed"],
             'crew': starship["data"]["starship"]['crew'],
             'passengers': starship["data"]["starship"]['passengers'],
             'cargo_capacity': starship["data"]["starship"]['cargoCapacity'],
