@@ -1,10 +1,11 @@
+from t3.graphQL import queries
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from urllib3 import PoolManager
+from gql import Client, gql
 import json
 import certifi
-from import './graphQL/queries' import get_film
 
 
 # Create your views here.
@@ -46,26 +47,12 @@ def index(request):
                               "small_url": small_url}
 
     client = Client()
-    get_film(client)
+    queries.get_film(client)
 
     return render(request, 'principal_page.html', {'films': film_dict})
 
 
 def show_film_page(request):
-    # NEW CODE #
-
-    client = GraphQLClient('http://graphql-swapi.parseapp.com/')
-    result = client.execute('''
-    {
-    allFilms {
-        films {
-        title
-        }
-    }
-    }
-    ''')
-    print(result)
-
 
 
     # OLD CODE # 
