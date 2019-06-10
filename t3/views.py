@@ -17,7 +17,7 @@ def index(request):
     client = queries.gql_client
     result = queries.get_all_films(client)
 
-    my_json = result.data.decode('utf8')
+    my_json = result.decode('utf8')
     print(my_json)
     print('- ' * 20)
     films = json.loads(my_json)
