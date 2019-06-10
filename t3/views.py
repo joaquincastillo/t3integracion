@@ -214,8 +214,8 @@ def show_starship_page(request):
             'max_atmosphering_speed': starship["data"]["starship"]["maxAtmosperingSpeed"],
             'crew': starship["data"]["starship"]['crew'],
             'passengers': starship["data"]["starship"]['passengers'],
-            'cargo_capacity': starship["data"]["starship"]['cargoCapacity']
-            'consumables': starship["data"]["starship"]['consumables']
+            'cargo_capacity': starship["data"]["starship"]['cargoCapacity'],
+            'consumables': starship["data"]["starship"]['consumables'],
             'hyperdrive_rating': starship["data"]["starship"]['hyperdriveRating'],
             'MGLT': starship["data"]["starship"]['MGLT'],
             'starship_class': starship["data"]["starship"]['starshipClass']
