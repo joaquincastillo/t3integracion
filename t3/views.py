@@ -187,8 +187,8 @@ def show_character_page(request):
 
     films = {}
     for film in character["data"]["person"]["filmConnection"]["edges"]:
-        title = character["node"]["title"]
-        film_id = character["node"]["id"]
+        title = film["node"]["title"]
+        film_id = film["node"]["id"]
 
         films[film_id] = title
 
