@@ -71,9 +71,6 @@ def index(request):
     #                           "producer": producer, "episode": episode, "url": url,
     #                           "small_url": small_url}
 
-    client = queries.gql_client
-    queries.get_film('"ZmlsbXM6NA=="', client)
-
     return render(request, 'principal_page.html', {'films': film_dict})
 
 
