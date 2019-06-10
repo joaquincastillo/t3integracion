@@ -45,7 +45,7 @@ def index(request):
                               "producer": producer, "episode": episode, "url": url,
                               "small_url": small_url}
 
-    queries.get_film()
+    queries.get_film("ZmlsbXM6NA==")
 
     return render(request, 'principal_page.html', {'films': film_dict})
 
