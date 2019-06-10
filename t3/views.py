@@ -4,6 +4,7 @@ from django.template import loader
 from urllib3 import PoolManager
 import json
 import certifi
+from import './graphQL/queries' import get_film
 
 
 # Create your views here.
@@ -11,7 +12,7 @@ import certifi
 
 def index(request):
     url = "https://swapi.co/api/films/"
-    #return HttpResponse("Hello, world. You're at the t3 index.")
+    # return HttpResponse("Hello, world. You're at the t3 index.")
     http = PoolManager(cert_reqs="CERT_REQUIRED", ca_certs=certifi.where())
     r = http.request('GET', url)
     print(r.status)
@@ -44,10 +45,30 @@ def index(request):
                               "producer": producer, "episode": episode, "url": url,
                               "small_url": small_url}
 
+    client = Client()
+    get_film(client)
+
     return render(request, 'principal_page.html', {'films': film_dict})
 
 
 def show_film_page(request):
+    # NEW CODE #
+
+    client = GraphQLClient('http://graphql-swapi.parseapp.com/')
+    result = client.execute('''
+    {
+    allFilms {
+        films {
+        title
+        }
+    }
+    }
+    ''')
+    print(result)
+
+
+
+    # OLD CODE # 
     url_param = request.GET.get("url_param")
     req_url = "https://swapi.co/api/films/{}".format(url_param)
 
