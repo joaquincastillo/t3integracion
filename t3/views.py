@@ -73,8 +73,11 @@ def show_film_page(request):
 
     # NEW CODE #
 
+    # url_param = film_id
+    url_param = request.GET.get("url_param")
+
     client = queries.gql_client
-    result = queries.get_all_films(client)
+    result = queries.get_film(client, url_param)
     film = json.loads(result)
 
     film_data = { 'id': film["data"]["film"]["id"],  'title': film["data"]["film"]["id"],
