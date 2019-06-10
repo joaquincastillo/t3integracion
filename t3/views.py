@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from urllib3 import PoolManager
-from gql import Client, gql
 import json
 import certifi
 
@@ -46,8 +45,7 @@ def index(request):
                               "producer": producer, "episode": episode, "url": url,
                               "small_url": small_url}
 
-    client = Client()
-    queries.get_film(client)
+    queries.get_film()
 
     return render(request, 'principal_page.html', {'films': film_dict})
 

@@ -1,4 +1,4 @@
-from gql import gql, Client
+from graphqlclient import GraphQLClient
 
 # 1. Todas las películas
 
@@ -27,46 +27,43 @@ fragment filmFragment on Film {
 # OJO con el id. The Phantom Menace es id "ZmlsbXM6NA==" por ejemplo.
 
 
-def get_film(client):
-    query = gql('''
-        query FetchFilm($filmId: String!) {
-            film(id: $filmId) {
-                id
-                episodeID
-                title
-                openingCrawl
-                director
-                producers
-                releaseDate
-                starshipConnection {edges {node {...starshipFragment}}}
-                characterConnection {edges {node {...characterFragment}}}
-                planetConnection {edges {node {...planetFragment}}}
-            }
+def get_film(filmId):
 
-            fragment starshipFragment on Starship {
-                id
-                name
-                model
-                costInCredits
-            }
-            fragment characterFragment on Person {
-                name
-                id
-                species {name}
-            }
+    client = GraphQLClient('https://swapi-graphql-integracion-t3.herokuapp.com/')
 
-            fragment planetFragment on Planet {
-                name
-                id
-            }
+    query = '''
+        film(id: %s) {
+            id
+            episodeID
+            title
+            openingCrawl
+            director
+            producers
+            releaseDate
+            starshipConnection {edges {node {...starshipFragment}}}
+            characterConnection {edges {node {...characterFragment}}}
+            planetConnection {edges {node {...planetFragment}}}
         }
-    ''')
 
-    params = {
-        'filmId': 'ZmlsbXM6NA==',
-    }
+        fragment starshipFragment on Starship {
+            id
+            name
+            model
+            costInCredits
+        }
+        fragment characterFragment on Person {
+            name
+            id
+            species {name}
+        }
 
-    result = client.execute(query, variable_values=params)
+        fragment planetFragment on Planet {
+            name
+            id
+        }
+        ''' % filmId
+
+    result = client.execute(query)
 
     print(result)
 
