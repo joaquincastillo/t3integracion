@@ -202,7 +202,7 @@ def show_starship_page(request):
     url_param = request.GET.get("url_param")
 
     client = queries.gql_client
-    result = queries.get_film(url_param, client)
+    result = queries.get_starship(url_param, client)
     starship = json.loads(result)
 
     data = {'id': starship["data"]["starship"]["id"],
