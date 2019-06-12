@@ -6,6 +6,8 @@
 
 </head>
 <body>
+    <button onclick="goBack()">Go Back</button>
+    <br>
 
 {% if starship %}
     <h2>Starship Info: {{ starship.name }}</h2>
@@ -81,3 +83,9 @@
 
 </body>
 </html>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>

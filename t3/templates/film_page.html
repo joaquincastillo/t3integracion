@@ -5,6 +5,8 @@
     <title>T3 de Joaquin Castillo - SWAPI</title>
 </head>
 <body>
+    <button onclick="goBack()">Go Back</button>
+    <br>
 
 {% if film and characters and starships and planets %}
 
@@ -40,3 +42,9 @@
 
 </body>
 </html>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
