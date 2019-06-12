@@ -11,47 +11,47 @@
     <h2>Character Info: {{ character.name }}</h2>
     <table>
     <tr>
-        <th>Nombre:</th>
+        <th>Name:</th>
         <td>{{ character.name }}</td>
     </tr>
     <tr>
-        <th>Año nacimiento:</th>
+        <th>Birth year:</th>
         <td>{{ character.birth_year }}</td>
     </tr>
     <tr>
-        <th>Color de ojos:</th>
+        <th>Eye color:</th>
         <td>{{ character.eye_color }}</td>
     </tr>
     <tr>
-        <th>Genero:</th>
+        <th>Gender:</th>
         <td>{{ character.gender }}</td>
     </tr>
     <tr>
-        <th>Color de pelo:</th>
+        <th>Hair color:</th>
         <td>{{ character.hair_color }}</td>
     </tr>
     <tr>
-        <th>Altura:</th>
+        <th>Height:</th>
         <td>{{ character.height }}</td>
     </tr>
     <tr>
-        <th>Peso:</th>
+        <th>Mass:</th>
         <td>{{ character.mass }}</td>
     </tr>
     <tr>
-        <th>Color de piel:</th>
+        <th>Skin Color:</th>
         <td>{{ character.skin_color }}</td>
     </tr>
     </table>
 
-    <h2>Planeta de nacimiento</h2>
+    <h2>Homeworld</h2>
     <ul style="list-style-type:circle;">
     {% for h in homeworld.items %}
         <li><a href="/t3/planet/?url_param={{ h.0 }}">{{ h.1 }}</a></li>
     {% endfor %}
     </ul>
 
-    <h2>Peliculas</h2>
+    <h2>Films</h2>
     <ul style="list-style-type:circle;">
     {% for f in films.items %}
         <li><a href="/t3/film/?url_param={{ f.0 }}">{{ f.1 }}</a></li>

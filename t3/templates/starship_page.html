@@ -11,43 +11,43 @@
     <h2>Starship Info: {{ starship.name }}</h2>
     <table>
     <tr>
-        <th>Nombre:</th>
+        <th>Name:</th>
         <td>{{ starship.name }}</td>
     </tr>
     <tr>
-        <th>Modelo:</th>
+        <th>Model:</th>
         <td>{{ starship.model }}</td>
     </tr>
     <tr>
-        <th>Manufactor:</th>
+        <th>Manufacturer:</th>
         <td>{{ starship.manufacturer }}</td>
     </tr>
     <tr>
-        <th>Costo en creditos:</th>
+        <th>Cost in credits:</th>
         <td>{{ starship.cost_in_credits }}</td>
     </tr>
     <tr>
-        <th>Largo:</th>
+        <th>Length:</th>
         <td>{{ starship.length }}</td>
     </tr>
     <tr>
-        <th>Max velocidad atm:</th>
+        <th>Max Atmosphering speed:</th>
         <td>{{ starship.max_atmosphering_speed }}</td>
     </tr>
     <tr>
-        <th>Tripulacion:</th>
+        <th>Crew:</th>
         <td>{{ starship.crew }}</td>
     </tr>
     <tr>
-        <th>Pasajeros:</th>
+        <th>Passsengers:</th>
         <td>{{ starship.passengers }}</td>
     </tr>
     <tr>
-        <th>Capacidad de carga:</th>
+        <th>Cargo capacity:</th>
         <td>{{ starship.cargo_capacity }}</td>
     </tr>
     <tr>
-        <th>Consumibles:</th>
+        <th>Consumables:</th>
         <td>{{ starship.consumables }}</td>
     </tr>
     <tr>
@@ -59,19 +59,19 @@
         <td>{{ starship.MGLT }}</td>
     </tr>
     <tr>
-        <th>Clase de nave:</th>
+        <th>Starship Class:</th>
         <td>{{ starship.starship_class }}</td>
     </tr>
     </table>
 
-    <h2>Pilotos</h2>
+    <h2>Pilots</h2>
     <ul style="list-style-type:circle;">
     {% for p in pilots.items %}
         <li><a href="/t3/character/?url_param={{ p.0 }}">{{ p.1 }}</a></li>
     {% endfor %}
     </ul>
 
-    <h2>Peliculas</h2>
+    <h2>Films</h2>
     <ul style="list-style-type:circle;">
     {% for f in films.items %}
         <li><a href="/t3/film/?url_param={{ f.0 }}">{{ f.1 }}</a></li>

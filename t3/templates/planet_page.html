@@ -10,51 +10,51 @@
     <h2>Planet Info: {{ planet.name }}</h2>
     <table>
     <tr>
-        <th>Nombre:</th>
+        <th>Name:</th>
         <td>{{ planet.name }}</td>
     </tr>
     <tr>
-        <th>Diametro:</th>
+        <th>Diameter:</th>
         <td>{{ planet.diameter }}</td>
     </tr>
     <tr>
-        <th>Periodo de rotacion:</th>
+        <th>Rotation Period:</th>
         <td>{{ planet.rotation_period }}</td>
     </tr>
     <tr>
-        <th>Vuelta a su estrella:</th>
+        <th>Orbital Period:</th>
         <td>{{ planet.orbital_period }}</td>
     </tr>
     <tr>
-        <th>Gravedad:</th>
+        <th>Gravity:</th>
         <td>{{ planet.gravity }}</td>
     </tr>
     <tr>
-        <th>Poblacion:</th>
+        <th>Population:</th>
         <td>{{ planet.population }}</td>
     </tr>
     <tr>
-        <th>Clima:</th>
+        <th>Climate:</th>
         <td>{{ planet.climate }}</td>
     </tr>
     <tr>
-        <th>Geografia:</th>
+        <th>Terrain:</th>
         <td>{{ planet.terrain }}</td>
     </tr>
     <tr>
-        <th>Superficie de agua :</th>
+        <th>Water surface :</th>
         <td>{{ planet.surface_water }}</td>
     </tr>
     </table>
 
-    <h2>Peliculas</h2>
+    <h2>Films</h2>
     <ul style="list-style-type:circle;">
     {% for f in films.items %}
         <li><a href="/t3/film/?url_param={{ f.0 }}">{{ f.1 }}</a></li>
     {% endfor %}
     </ul>
 
-    <h2>Residentes</h2>
+    <h2>Residents</h2>
     <ul style="list-style-type:circle;">
     {% for r in residents.items %}
         <li><a href="/t3/character/?url_param={{ r.0 }}">{{ r.1 }}</a></li>
